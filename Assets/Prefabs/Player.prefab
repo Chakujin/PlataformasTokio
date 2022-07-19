@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921858090965650665}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: -0.225, z: 0}
+  m_LocalPosition: {x: 0.05, y: -0.205, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697170290522392378}
@@ -116,11 +116,10 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_GroundCheck: {fileID: 7341196705267315488}
   m_CeilingCheck: {fileID: 2860062792241442835}
-  m_CrouchDisableCollider: {fileID: 0}
-  m_Rigidbody2D: {fileID: 7434066896031084428}
+  m_CrouchDisableCollider: {fileID: 353156056293219315}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -138,7 +137,19 @@ MonoBehaviour:
         m_CallState: 2
   OnCrouchEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7825420305931784832}
+        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
+        m_MethodName: IsCrouch
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7825420305931784832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,10 +163,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 9077369156122329604}
-  runSpeed: 5
+  runSpeed: 40
+  b_jump: 0
   playerAnimator: {fileID: 2091858608588854935}
-  b_isRigth: 0
-  b_isLeft: 0
 --- !u!50 &7434066896031084428
 Rigidbody2D:
   serializedVersion: 4

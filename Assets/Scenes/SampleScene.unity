@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 193893951}
   - component: {fileID: 193893950}
   - component: {fileID: 193893949}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,6 +327,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 353156056293219315, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3697170290522392378, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -387,17 +391,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7341196705267315488, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.205
+      objectReference: {fileID: 0}
     - target: {fileID: 7825420305931784832, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
       propertyPath: runSpeed
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: m_WhatIsGround.m_Bits
+      propertyPath: m_JumpForce
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+      propertyPath: m_AirControl
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+      propertyPath: m_WhatIsGround.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
       propertyPath: m_CrouchDisableCollider
       value: 
       objectReference: {fileID: 1035604536}
+    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
