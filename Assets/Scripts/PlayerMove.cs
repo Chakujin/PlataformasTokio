@@ -27,10 +27,12 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         f_horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        
+        playerAnimator.SetFloat("Speed", Mathf.Abs(f_horizontalMove));
+
         if (Input.GetButtonDown("Jump"))
         {
             b_jump = true;
+            playerAnimator.SetBool("IsJumping", true);
         }
 
         if (Input.GetButtonDown("Crouch"))
@@ -44,5 +46,10 @@ public class PlayerMove : MonoBehaviour
         // Move our character
         controller.Move(f_horizontalMove * Time.fixedDeltaTime, false, b_jump);
         b_jump = false;
+    }
+
+    public void OnLanding()
+    {
+        playerAnimator.SetBool("IsJumping", false);
     }
 }
