@@ -60,6 +60,36 @@ Transform:
   m_Father: {fileID: 3697170290522392378}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4699147507763371332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8588793689142855526}
+  m_Layer: 0
+  m_Name: RigthDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8588793689142855526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699147507763371332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.066, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3697170290522392378}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5844694197512889123
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +125,8 @@ Transform:
   - {fileID: 6748205926304349299}
   - {fileID: 7341196705267315488}
   - {fileID: 2860062792241442835}
+  - {fileID: 8588793689142855526}
+  - {fileID: 3872890555526153298}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9fa44649dadbf4fa88adee7db3418d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 400
+  m_JumpForce: 100
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -164,8 +196,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9077369156122329604}
   runSpeed: 40
-  b_jump: 0
+  b_isRigth: 0
+  b_isLeft: 0
   playerAnimator: {fileID: 2091858608588854935}
+  playerColliders:
+  - {fileID: 4457486220447963570}
+  - {fileID: 353156056293219315}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  rigthDetector: {fileID: 8588793689142855526}
+  leftDetector: {fileID: 3872890555526153298}
 --- !u!50 &7434066896031084428
 Rigidbody2D:
   serializedVersion: 4
@@ -331,3 +372,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &7631003055774710178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3872890555526153298}
+  m_Layer: 0
+  m_Name: LeftDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3872890555526153298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631003055774710178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.05, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3697170290522392378}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

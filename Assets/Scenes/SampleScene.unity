@@ -227,7 +227,7 @@ Transform:
   m_GameObject: {fileID: 193893948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.026628776, y: -2.67, z: 0}
-  m_LocalScale: {x: 12.7, y: 1, z: 1}
+  m_LocalScale: {x: 125.888756, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -315,11 +315,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1035604536 stripped
-CircleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 353156056293219315, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-  m_PrefabInstance: {fileID: 1328872397}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1328872397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -327,25 +322,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 353156056293219315, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3697170290522392378, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3697170290522392378, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3697170290522392378, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3697170290522392378, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3697170290522392378, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
       propertyPath: m_LocalPosition.x
@@ -390,42 +369,6 @@ PrefabInstance:
     - target: {fileID: 5844694197512889123, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7341196705267315488, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.205
-      objectReference: {fileID: 0}
-    - target: {fileID: 7825420305931784832, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: runSpeed
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: m_JumpForce
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: m_AirControl
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: m_WhatIsGround.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: m_CrouchDisableCollider
-      value: 
-      objectReference: {fileID: 1035604536}
-    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
-      propertyPath: OnCrouchEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
