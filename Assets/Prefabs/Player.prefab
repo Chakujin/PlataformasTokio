@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 353156056293219315}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9fa44649dadbf4fa88adee7db3418d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 100
+  m_JumpForce: 400
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1

@@ -45,10 +45,10 @@ public class PlayerMove : MonoBehaviour
 
         f_speedDir = Mathf.Abs(f_horizontalMove);
         playerAnimator.SetFloat("Speed", f_speedDir);
+       
         //-----------------------------------------------------------------------
         //Inputs
         //-----------------------------------------------------------------------
-
         if (Input.GetButtonDown("Jump") && b_crouch == false && b_jump == false && b_roll == false)
         {
             b_jump = true;
@@ -91,6 +91,7 @@ public class PlayerMove : MonoBehaviour
     {
         // Move our character
         controller.Move(f_horizontalMove * Time.fixedDeltaTime, b_crouch, b_jump);
+        b_jump = false;
 
         //Detect Enemyes
         Collider2D[] detectRigthEnemy = Physics2D.OverlapBoxAll(rigthDetector.position, m_sizeDetector, 0, enemyLayer);
@@ -126,20 +127,9 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator IsRolling()
     {
-        m_myRb.AddForce(transform.forward);
-        m_myRb.bodyType = RigidbodyType2D.Kinematic;
-        foreach (Collider2D coll in playerColliders)
-        {
-            coll.enabled = false;
-        }
-
+        //No recibe daño
         yield return new WaitForSeconds(0.4f);
 
-        foreach (Collider2D coll in playerColliders)
-        {
-            coll.enabled = true;
-        }
-        m_myRb.bodyType = RigidbodyType2D.Dynamic;
         playerAnimator.SetBool("Roll", false);
         b_roll = false;
     }
