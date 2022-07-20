@@ -17,7 +17,7 @@ public class PlayerMove : MonoBehaviour
     private float f_currenTime = 0;
     private float f_cadence = 0.5f;
     private float f_currenTimeRoll = 0;
-    private float f_cadenceRoll = 0.6f;
+    private float f_cadenceRoll = 1f;
     private Vector2 m_sizeDetector;
 
     public Animator playerAnimator;
@@ -25,14 +25,13 @@ public class PlayerMove : MonoBehaviour
     public LayerMask enemyLayer;
     public Transform rigthDetector;
     public Transform leftDetector;
-    private Rigidbody2D m_myRb;
 
     private float f_speedDir;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_myRb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -82,6 +81,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && f_currenTimeRoll >= f_cadenceRoll && b_jump == false && b_crouch == false)
         {
             StartCoroutine(IsRolling());
+            f_currenTimeRoll = 0f;
             playerAnimator.SetBool("Roll",true);
             b_roll = true;
         }
@@ -109,7 +109,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    public void OnLanding ()
+    public void OnLanding()
     {
         playerAnimator.SetBool("IsJumping", false);
         b_jump = false;
@@ -121,6 +121,11 @@ public class PlayerMove : MonoBehaviour
     }
 
     public void Attack()
+    {
+
+    }
+
+    public void TakeDamage()
     {
 
     }
