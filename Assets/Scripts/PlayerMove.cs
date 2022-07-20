@@ -125,9 +125,9 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int dmg)
     {
-
+        Debug.Log("damage");
     }
 
     private IEnumerator IsRolling()
