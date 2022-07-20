@@ -13,6 +13,7 @@ public class SkeletonScript : EnemyClass
     public Transform detectRigth;
     public Transform detectLeft;
     public Transform[] pointMove;
+    public Transform scalePoint;
 
     private int i_currentPoint;
     private Vector2 v_moveDirection;
@@ -47,11 +48,13 @@ public class SkeletonScript : EnemyClass
                 if (v_moveDirection.x - transform.position.x < transform.position.x)
                 {
                     enemySprite.flipX = true;
-                    Debug.Log("Izquierda");
+                    scalePoint.localScale = new Vector2(-1,1);
+                    //Debug.Log("Izquierda");
                 }
                 else if (v_moveDirection.x - transform.position.x > transform.position.x)
                 {
                     enemySprite.flipX = false;
+                    scalePoint.localScale = new Vector2(1, 1);
                     //Debug.Log("Derecha");
                 }
             }
@@ -70,27 +73,9 @@ public class SkeletonScript : EnemyClass
             {
                 detectHitRigth = true;
                 detectHitLeft = false;
+                scalePoint.localScale = new Vector2(1, 1);
 
                 //Detect Player Rigth
-                foreach (Collider2D player in hitEnemyes)
-                {
-                    //Attack Player
-                    if (b_startAttack == false)
-                    {
-                        StartCoroutine(startAttack(player));
-                        b_startAttack = true;
-                        enemySprite.flipX = true;
-                        move = false;
-                    }
-                }
-            }
-
-            foreach (Collider2D playerLeft in detectLeftPlayer)
-            {
-                detectHitRigth = false;
-                detectHitLeft = true;
-
-                //Detect Player Left
                 foreach (Collider2D player in hitEnemyes)
                 {
                     //Attack Player
@@ -103,8 +88,28 @@ public class SkeletonScript : EnemyClass
                     }
                 }
             }
+
+            foreach (Collider2D playerLeft in detectLeftPlayer)
+            {
+                detectHitRigth = false;
+                detectHitLeft = true;
+                scalePoint.localScale = new Vector2(-1, 1);
+                //Detect Player Left
+                foreach (Collider2D player in hitEnemyes)
+                {
+                    //Attack Player
+                    if (b_startAttack == false)
+                    {
+                        StartCoroutine(startAttack(player));
+                        b_startAttack = true;
+                        enemySprite.flipX = true;
+                        move = false;
+                    }
+                }
+            }
         }
     }
+
     private IEnumerator startAttack(Collider2D playerDetected)
     {
         enemyAnim.SetTrigger("Attack");
