@@ -14,24 +14,32 @@ public class PlayerMove : MonoBehaviour
     private bool b_jump;
     private bool b_crouch;
     private bool b_roll;
+
     private float f_currenTime = 0;
     private float f_cadence = 0.5f;
     private float f_currenTimeRoll = 0;
     private float f_cadenceRoll = 1f;
-    private Vector2 m_sizeDetector;
+    [SerializeField]private float f_attackRange;
+
+    private int i_attackDamage = 3;
+
+    private Vector2 m_sizeDetector = new Vector2(0.83f,1.40f);
+    [SerializeField] private Vector2 m_crouchAttackpos;
+    private Vector2 m_normalAttackpos;
 
     public Animator playerAnimator;
     public Collider2D[] playerColliders;
     public LayerMask enemyLayer;
     public Transform rigthDetector;
     public Transform leftDetector;
+    public Transform attackPoint;
 
     private float f_speedDir;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        m_normalAttackpos = attackPoint.localPosition;
     }
 
     // Update is called once per frame
@@ -123,12 +131,27 @@ public class PlayerMove : MonoBehaviour
 
     public void Attack()
     {
+        if(b_crouch == true)
+        {
+            attackPoint.localPosition = m_crouchAttackpos;
+        }
+        else
+        {
+            attackPoint.localPosition = m_normalAttackpos;
+        }
 
+        Collider2D[] hitEnemyes = Physics2D.OverlapCircleAll(attackPoint.position, f_attackRange, enemyLayer);
+        
+        foreach (Collider2D enemy in hitEnemyes)
+        {
+            Debug.Log("Encuentro enemigo");
+            enemy.GetComponent<EnemyClass>().TakeDamage(i_attackDamage);
+        }
     }
 
     public void TakeDamage(int dmg)
     {
-        Debug.Log("damage");
+        Debug.Log("Player Damage");
     }
 
     private IEnumerator IsRolling()
@@ -138,5 +161,11 @@ public class PlayerMove : MonoBehaviour
 
         playerAnimator.SetBool("Roll", false);
         b_roll = false;
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube(rigthDetector.position, m_sizeDetector);
+        Gizmos.DrawWireCube(leftDetector.position, m_sizeDetector);
+        Gizmos.DrawSphere(attackPoint.position,f_attackRange);
     }
 }

@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &22451085843821121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3782591051468789499}
+  m_Layer: 7
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3782591051468789499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22451085843821121}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.323, y: -0.038, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3697170290522392378}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1921858090965650665
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4699147507763371332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.066, y: 0, z: 0}
+  m_LocalPosition: {x: 0.114, y: -0.046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697170290522392378}
@@ -127,6 +157,7 @@ Transform:
   - {fileID: 2860062792241442835}
   - {fileID: 8588793689142855526}
   - {fileID: 3872890555526153298}
+  - {fileID: 3782591051468789499}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -152,6 +183,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 7341196705267315488}
   m_CeilingCheck: {fileID: 2860062792241442835}
   m_CrouchDisableCollider: {fileID: 353156056293219315}
+  m_Grounded: 0
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -198,6 +230,8 @@ MonoBehaviour:
   runSpeed: 40
   b_isRigth: 0
   b_isLeft: 0
+  f_attackRange: 0.5
+  m_crouchAttackpos: {x: 0.28, y: -0.12}
   playerAnimator: {fileID: 2091858608588854935}
   playerColliders:
   - {fileID: 4457486220447963570}
@@ -207,6 +241,7 @@ MonoBehaviour:
     m_Bits: 64
   rigthDetector: {fileID: 8588793689142855526}
   leftDetector: {fileID: 3872890555526153298}
+  attackPoint: {fileID: 3782591051468789499}
 --- !u!50 &7434066896031084428
 Rigidbody2D:
   serializedVersion: 4
@@ -396,7 +431,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7631003055774710178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.05, y: 0, z: 0}
+  m_LocalPosition: {x: -0.11, y: -0.046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697170290522392378}

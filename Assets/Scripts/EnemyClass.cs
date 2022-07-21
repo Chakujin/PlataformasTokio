@@ -15,9 +15,17 @@ public class EnemyClass : MonoBehaviour
     public bool detectHitLeft = false;
     public SpriteRenderer enemySprite;
 
-    // Start is called before the first frame update
-    void Start()
+    public void TakeDamage(int dmg)
     {
-        
+        Debug.Log("EnemyHit");
+        heal -= dmg;
+        enemyAnim.SetTrigger("Hited");
+
+        if(heal <= 0)
+        {
+            die = true;
+            speed = 0;
+            enemyAnim.SetBool("Death", true);
+        }
     }
 }

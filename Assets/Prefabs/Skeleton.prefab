@@ -56,7 +56,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002030525070431824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3673359782813685029}
@@ -142,7 +142,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3673359782813685029}
   - component: {fileID: 7577011135596600814}
-  m_Layer: 0
+  - component: {fileID: 6811201940718927982}
+  m_Layer: 6
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,15 +181,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAnim: {fileID: 800549721478101603}
-  heal: 10
-  maxHeal: 10
+  heal: 2
+  maxHeal: 2
   speed: 2
   die: 0
   move: 1
   detectHitRigth: 0
   detectHitLeft: 0
   enemySprite: {fileID: 7470514115198009074}
-  sizeAttack: {x: 0.42, y: 1.21}
+  m_sizeAttack: {x: 0, y: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -200,6 +201,19 @@ MonoBehaviour:
   - {fileID: 0}
   scalePoint: {fileID: 2369351501463439539}
   sizeDetectors: {x: 1.13, y: 1.7}
+--- !u!65 &6811201940718927982
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2775593561059561767}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2346673, y: 1.4974703, z: 1}
+  m_Center: {x: -0.09120536, y: -0.24873513, z: 0}
 --- !u!1 &4013325194742202551
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6954498024034272100}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.973, y: -0.222, z: 0}
+  m_LocalPosition: {x: 0.9, y: -0.222, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2369351501463439539}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SkeletonScript : EnemyClass
 {
     
-    public Vector2 sizeAttack;
+    [SerializeField] private Vector2 m_sizeAttack;
     public LayerMask playerLayer;
     private bool b_startAttack = false;
 
@@ -62,7 +62,7 @@ public class SkeletonScript : EnemyClass
     }
     private void FixedUpdate()
     {
-        Collider2D[] hitEnemyes = Physics2D.OverlapBoxAll(detectedPoint.position, sizeAttack, playerLayer);
+        Collider2D[] hitEnemyes = Physics2D.OverlapBoxAll(detectedPoint.position, m_sizeAttack, playerLayer);
         Collider2D[] detectRigthPlayer = Physics2D.OverlapBoxAll(detectRigth.position, sizeDetectors, 0, playerLayer);
         Collider2D[] detectLeftPlayer = Physics2D.OverlapBoxAll(detectLeft.position, sizeDetectors, 0, playerLayer);
 
@@ -139,7 +139,7 @@ public class SkeletonScript : EnemyClass
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawCube(detectedPoint.position, sizeAttack);
+        Gizmos.DrawCube(detectedPoint.position, m_sizeAttack);
         Gizmos.DrawWireCube(detectRigth.position, sizeDetectors);
         Gizmos.DrawWireCube(detectLeft.position, sizeDetectors);
     }
