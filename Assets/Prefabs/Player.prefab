@@ -184,6 +184,7 @@ MonoBehaviour:
   m_CeilingCheck: {fileID: 2860062792241442835}
   m_CrouchDisableCollider: {fileID: 353156056293219315}
   m_Grounded: 0
+  m_Rigidbody2D: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -231,6 +232,7 @@ MonoBehaviour:
   b_isRigth: 0
   b_isLeft: 0
   f_attackRange: 0.5
+  maxHeal: 10
   m_crouchAttackpos: {x: 0.28, y: -0.12}
   playerAnimator: {fileID: 2091858608588854935}
   playerColliders:

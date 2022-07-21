@@ -68,7 +68,6 @@ public class SkeletonScript : EnemyClass
 
         if (b_startAttack == false && die == false)
         {
-
             foreach (Collider2D playerRigth in detectRigthPlayer)
             {
                 detectHitRigth = true;

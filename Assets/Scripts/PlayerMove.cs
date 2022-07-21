@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
     private bool b_jump;
     private bool b_crouch;
     private bool b_roll;
+    private bool b_death =  false;
 
     private float f_currenTime = 0;
     private float f_cadence = 0.5f;
@@ -21,7 +22,10 @@ public class PlayerMove : MonoBehaviour
     private float f_cadenceRoll = 1f;
     [SerializeField]private float f_attackRange;
 
-    private int i_attackDamage = 3;
+    public float maxHeal;
+    private float f_currentHeal;
+
+    private int i_attackDamage = 1;
 
     private Vector2 m_sizeDetector = new Vector2(0.83f,1.40f);
     [SerializeField] private Vector2 m_crouchAttackpos;
@@ -40,6 +44,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         m_normalAttackpos = attackPoint.localPosition;
+        f_currentHeal = maxHeal;
     }
 
     // Update is called once per frame
@@ -47,7 +52,7 @@ public class PlayerMove : MonoBehaviour
     {
         f_currenTime += Time.deltaTime;
         f_currenTimeRoll += Time.deltaTime;
-
+        
         f_horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         f_speedDir = Mathf.Abs(f_horizontalMove);
@@ -72,7 +77,7 @@ public class PlayerMove : MonoBehaviour
             b_crouch = false;
         }
 
-        if (Input.GetButtonDown("Fire1") && f_currenTime >= f_cadence && b_jump == false && b_roll == false)
+        if (Input.GetButtonDown("Fire1") && f_currenTime >= f_cadence && controller.m_Grounded == true && b_roll == false)
         {
             if(f_speedDir > 0.01f)
             {
@@ -131,7 +136,7 @@ public class PlayerMove : MonoBehaviour
 
     public void Attack()
     {
-        if(b_crouch == true)
+        if (b_crouch == true)
         {
             attackPoint.localPosition = m_crouchAttackpos;
         }
@@ -141,17 +146,36 @@ public class PlayerMove : MonoBehaviour
         }
 
         Collider2D[] hitEnemyes = Physics2D.OverlapCircleAll(attackPoint.position, f_attackRange, enemyLayer);
-        
         foreach (Collider2D enemy in hitEnemyes)
         {
-            Debug.Log("Encuentro enemigo");
             enemy.GetComponent<EnemyClass>().TakeDamage(i_attackDamage);
         }
     }
 
     public void TakeDamage(int dmg)
     {
-        Debug.Log("Player Damage");
+        if (b_death == false)
+        {
+            //FindObjectOfType<AudioManager>().Play("Hit");
+
+            f_currentHeal -= dmg;
+            playerAnimator.SetTrigger("isHited");
+            //CameraPlayer.Instance.ShakeCamera(3f, 0.25f); // ShakeCam
+
+            if (b_isRigth == true)
+            {
+                controller.m_Rigidbody2D.AddForce(new Vector2(20, 5), ForceMode2D.Impulse);
+            }
+            else if (b_isLeft == true)//Arreglar
+            {
+                controller.m_Rigidbody2D.AddForce(new Vector2(-20, 5), ForceMode2D.Impulse);
+            }
+            if (f_currentHeal <= 0)
+            {
+                //StartCoroutine(diePlayer());
+                b_death = true;
+            }
+        }
     }
 
     private IEnumerator IsRolling()

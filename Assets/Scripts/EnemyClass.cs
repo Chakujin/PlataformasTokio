@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyClass : MonoBehaviour
 {
     public Animator enemyAnim;
+    public Collider2D enemyColl;
     public int heal;
     public int maxHeal;
 
@@ -17,15 +18,27 @@ public class EnemyClass : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        Debug.Log("EnemyHit");
+        StartCoroutine(DamageCor(dmg));
+    }
+
+    private IEnumerator DamageCor(int dmg)
+    {
+        float timeStop = 1f;
+        move = false;
         heal -= dmg;
         enemyAnim.SetTrigger("Hited");
 
-        if(heal <= 0)
+        if (heal <= 0)
         {
+            timeStop = 10;
             die = true;
             speed = 0;
             enemyAnim.SetBool("Death", true);
+            enemyColl.enabled = false;
+            yield return new WaitForSeconds(3f);
+            Destroy(this.gameObject);
         }
+        yield return new WaitForSeconds(timeStop);
+        move = true;
     }
 }
