@@ -44,7 +44,8 @@ public class PlayerMove : MonoBehaviour
 
         f_speedDir = Mathf.Abs(f_horizontalMove);
         playerAnimator.SetFloat("Speed", f_speedDir);
-       
+
+        playerAnimator.SetBool("isGrounded", controller.m_Grounded);
         //-----------------------------------------------------------------------
         //Inputs
         //-----------------------------------------------------------------------
