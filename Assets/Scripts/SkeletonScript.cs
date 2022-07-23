@@ -113,7 +113,10 @@ public class SkeletonScript : EnemyClass
     {
         enemyAnim.SetTrigger("Attack");
         enemyAnim.SetBool("Move", false);
-        playerDetected.GetComponentInParent<PlayerMove>().TakeDamage(1);
+        if (playerDetected.GetComponentInParent<PlayerMove>().b_roll == false)
+        {
+            playerDetected.GetComponentInParent<PlayerMove>().TakeDamage(1);
+        }
 
         if (detectHitLeft == true)
         {
