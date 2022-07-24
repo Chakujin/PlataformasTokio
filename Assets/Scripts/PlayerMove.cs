@@ -9,6 +9,8 @@ public class PlayerMove : MonoBehaviour
     private float f_horizontalMove = 0f;
     public float runSpeed = 40;
 
+    private bool b_isRigth;
+    private bool b_isLeft;
     private bool b_jump;
     private bool b_crouch;
     public bool b_roll;
@@ -24,7 +26,7 @@ public class PlayerMove : MonoBehaviour
     public float maxHeal;
     private float f_currentHeal;
 
-    private int i_attackDamage = 1;
+    private const int i_attackDamage = 1;
 
     private Vector2 m_sizeDetector = new Vector2(0.83f,1.40f);
     [SerializeField] private Vector2 m_crouchAttackpos;
@@ -33,8 +35,6 @@ public class PlayerMove : MonoBehaviour
     public Animator playerAnimator;
     public Collider2D[] playerColliders;
     public LayerMask enemyLayer;
-    public Transform rigthDetector;
-    public Transform leftDetector;
     public Transform attackPoint;
 
     private float f_speedDir;
@@ -102,13 +102,27 @@ public class PlayerMove : MonoBehaviour
                 StartCoroutine(IsRolling());
                 f_currenTimeRoll = 0f;
                 playerAnimator.SetBool("Roll", true);
-                b_roll = true;
             }
         }
     }
 
     private void FixedUpdate()
     {
+        //Detect Enemyes
+        Collider2D[] detectRigthEnemy = Physics2D.OverlapBoxAll(controller.rigthDetector.position, m_sizeDetector, 0, enemyLayer);
+        Collider2D[] detectLeftEnemy = Physics2D.OverlapBoxAll(controller.leftDetector.position, m_sizeDetector, 0, enemyLayer);
+
+        foreach (Collider2D detectEnemyRigth in detectRigthEnemy)
+        {
+            b_isRigth = true;
+            b_isLeft = false;
+        }
+        foreach (Collider2D detectEnemyLeft in detectLeftEnemy)
+        {
+            b_isRigth = false;
+            b_isLeft = true;
+        }
+
         // Move our character
         controller.Move(f_horizontalMove * Time.fixedDeltaTime, b_crouch, b_jump);
         b_jump = false;
@@ -148,12 +162,20 @@ public class PlayerMove : MonoBehaviour
         if (b_death == false)
         {
             //FindObjectOfType<AudioManager>().Play("Hit");
+            //CameraPlayer.Instance.ShakeCamera(3f, 0.25f); // ShakeCam
 
             f_currentHeal -= dmg;
             playerAnimator.SetTrigger("HitPlayer");
             StartCoroutine(TakingDamage());
 
-            //CameraPlayer.Instance.ShakeCamera(3f, 0.25f); // ShakeCam
+            if (b_isRigth)
+            {
+                controller.m_Rigidbody2D.AddForceAtPosition(Vector2.right * 20, transform.localPosition, ForceMode2D.Impulse);
+            }
+            else if (b_isLeft)
+            {
+                controller.m_Rigidbody2D.AddForceAtPosition(Vector2.left * 20, transform.localPosition, ForceMode2D.Impulse);
+            }
         }
     }
 
@@ -162,19 +184,13 @@ public class PlayerMove : MonoBehaviour
         float time = 1f;
         b_hited = true;
 
-        foreach(Collider2D coll in playerColliders)
-        {
-            coll.enabled = false;
-        }
-
         if (f_currentHeal <= 0)
         {
             playerAnimator.SetBool("Death", true);
 
-            //StartCoroutine(diePlayer());
             b_death = true;
             time = 10f;
-
+            //Fade
             yield return new WaitForSeconds(2f);
             this.gameObject.SetActive(false);
         }
@@ -182,16 +198,12 @@ public class PlayerMove : MonoBehaviour
         yield return new WaitForSeconds(time);
 
         b_hited = false;
-
-        foreach (Collider2D coll in playerColliders)
-        {
-            coll.enabled = true;
-        }
     }
 
     private IEnumerator IsRolling()
     {
-        //No recibe daño
+        b_roll = true;
+        controller.m_Rigidbody2D.AddForceAtPosition(Vector2.right * 1000,transform.localPosition);
         yield return new WaitForSeconds(0.4f);
 
         playerAnimator.SetBool("Roll", false);
@@ -199,8 +211,8 @@ public class PlayerMove : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireCube(rigthDetector.position, m_sizeDetector);
-        Gizmos.DrawWireCube(leftDetector.position, m_sizeDetector);
+        Gizmos.DrawWireCube(controller.rigthDetector.position, m_sizeDetector);
+        Gizmos.DrawWireCube(controller.leftDetector.position, m_sizeDetector);
         Gizmos.DrawSphere(attackPoint.position,f_attackRange);
     }
 }

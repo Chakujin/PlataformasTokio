@@ -19,6 +19,10 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
+	//Edited
+	public Transform rigthDetector;
+	public Transform leftDetector;
+
 	[Header("Events")]
 	[Space]
 
@@ -143,5 +147,8 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+
+		rigthDetector.localPosition = new Vector2(rigthDetector.localPosition.x * -1, rigthDetector.localPosition.y);
+		leftDetector.localPosition = new Vector2(leftDetector.localPosition.x * -1, leftDetector.localPosition.y);
 	}
 }

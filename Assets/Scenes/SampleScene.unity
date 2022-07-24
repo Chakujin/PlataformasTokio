@@ -558,6 +558,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &823568077 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3872890555526153298, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+  m_PrefabInstance: {fileID: 1328872397}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &938270146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,6 +2376,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3872890555526153298, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5844694197512889123, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2379,6 +2388,14 @@ PrefabInstance:
       propertyPath: maxHeal
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+      propertyPath: leftDetector
+      value: 
+      objectReference: {fileID: 1852170131}
+    - target: {fileID: 9077369156122329604, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+      propertyPath: rigthDetector
+      value: 
+      objectReference: {fileID: 823568077}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
 --- !u!1 &1642866983
@@ -2425,6 +2442,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {r: 1, g: 0, b: 0, a: 1}
+--- !u!4 &1852170131 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8588793689142855526, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
+  m_PrefabInstance: {fileID: 1328872397}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1990770674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3697170290522392378, guid: 2dc89434f43e26d41b29654d68058645, type: 3}

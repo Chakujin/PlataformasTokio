@@ -185,6 +185,8 @@ MonoBehaviour:
   m_CrouchDisableCollider: {fileID: 353156056293219315}
   m_Grounded: 0
   m_Rigidbody2D: {fileID: 0}
+  rigthDetector: {fileID: 0}
+  leftDetector: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -229,8 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 9077369156122329604}
   runSpeed: 40
-  b_isRigth: 0
-  b_isLeft: 0
+  b_roll: 0
   f_attackRange: 0.5
   maxHeal: 10
   m_crouchAttackpos: {x: 0.28, y: -0.12}
@@ -241,8 +242,6 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  rigthDetector: {fileID: 8588793689142855526}
-  leftDetector: {fileID: 3872890555526153298}
   attackPoint: {fileID: 3782591051468789499}
 --- !u!50 &7434066896031084428
 Rigidbody2D:
