@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     //Move + Attack
     public CharacterController2D controller;
-    [SerializeField] private float f_horizontalMove = 0f;
+    private float f_horizontalMove = 0f;
     public float runSpeed = 40;
 
     private bool b_isRigth;

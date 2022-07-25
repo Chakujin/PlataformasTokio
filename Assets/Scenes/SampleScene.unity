@@ -2255,14 +2255,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 529718049}
     m_Modifications:
-    - target: {fileID: 2760093615941013367, guid: 415b7d0e3424b534c8695ef964ec78ee, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2760093615941013367, guid: 415b7d0e3424b534c8695ef964ec78ee, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2775593561059561767, guid: 415b7d0e3424b534c8695ef964ec78ee, type: 3}
       propertyPath: m_Name
       value: Skeleton
@@ -2310,10 +2302,6 @@ PrefabInstance:
     - target: {fileID: 3673359782813685029, guid: 415b7d0e3424b534c8695ef964ec78ee, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7577011135596600814, guid: 415b7d0e3424b534c8695ef964ec78ee, type: 3}
-      propertyPath: maxHeal
-      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7577011135596600814, guid: 415b7d0e3424b534c8695ef964ec78ee, type: 3}
       propertyPath: pointMove.Array.data[0]
