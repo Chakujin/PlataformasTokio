@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     //Move + Attack
     public CharacterController2D controller;
-    private float f_horizontalMove = 0f;
+    [SerializeField] private float f_horizontalMove = 0f;
     public float runSpeed = 40;
 
     private bool b_isRigth;
@@ -97,11 +97,10 @@ public class PlayerMove : MonoBehaviour
                 Attack();
             }
 
-            if (Input.GetButtonDown("Fire2") && f_currenTimeRoll >= f_cadenceRoll && b_jump == false && b_crouch == false)
+            if (Input.GetButtonDown("Fire2") && f_currenTimeRoll >= f_cadenceRoll && f_horizontalMove != 0 && b_crouch == false && controller.m_Grounded == true)
             {
                 StartCoroutine(IsRolling());
                 f_currenTimeRoll = 0f;
-                playerAnimator.SetBool("Roll", true);
             }
         }
     }
@@ -159,6 +158,7 @@ public class PlayerMove : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
+        const int force = 20;
         if (b_death == false)
         {
             //FindObjectOfType<AudioManager>().Play("Hit");
@@ -170,11 +170,11 @@ public class PlayerMove : MonoBehaviour
 
             if (b_isRigth)
             {
-                controller.m_Rigidbody2D.AddForceAtPosition(Vector2.right * 20, transform.localPosition, ForceMode2D.Impulse);
+                controller.m_Rigidbody2D.AddForceAtPosition(new Vector2(1,0.1f) * force, transform.localPosition, ForceMode2D.Impulse);
             }
             else if (b_isLeft)
             {
-                controller.m_Rigidbody2D.AddForceAtPosition(Vector2.left * 20, transform.localPosition, ForceMode2D.Impulse);
+                controller.m_Rigidbody2D.AddForceAtPosition(new Vector2(-1, 0.1f) * force, transform.localPosition, ForceMode2D.Impulse);
             }
         }
     }
@@ -202,8 +202,19 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator IsRolling()
     {
+        const int force = 1000;
         b_roll = true;
-        controller.m_Rigidbody2D.AddForceAtPosition(Vector2.right * 1000,transform.localPosition);
+        playerAnimator.SetBool("Roll", true);
+        
+        if (f_horizontalMove >= 40)
+        {
+            controller.m_Rigidbody2D.AddForceAtPosition(Vector2.right * force, transform.localPosition);
+        }
+        else if(f_horizontalMove <= -40)
+        {
+            controller.m_Rigidbody2D.AddForceAtPosition(Vector2.left * force, transform.localPosition);
+        }
+
         yield return new WaitForSeconds(0.4f);
 
         playerAnimator.SetBool("Roll", false);
