@@ -56,7 +56,7 @@ public class SlimeScript : EnemyClass
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && die == false)
         {
             StepSlime(collision.gameObject.GetComponent<PlayerMove>());
         }

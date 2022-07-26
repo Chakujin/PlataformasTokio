@@ -1,9 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    //Managers
+    private GameManager m_gameManager;
+
     //Move + Attack
     public CharacterController2D controller;
     private float f_horizontalMove = 0f;
@@ -23,7 +26,7 @@ public class PlayerMove : MonoBehaviour
     private const float f_cadenceRoll = 1f;
     [SerializeField]private float f_attackRange;
 
-    public float maxHeal;
+    public const float maxHeal = 10;
     private float f_currentHeal;
 
     private const int i_attackDamage = 1;
@@ -42,6 +45,7 @@ public class PlayerMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         m_normalAttackpos = attackPoint.localPosition;
         f_currentHeal = maxHeal;
     }
@@ -187,7 +191,7 @@ public class PlayerMove : MonoBehaviour
         if (f_currentHeal <= 0)
         {
             playerAnimator.SetBool("Death", true);
-
+            m_gameManager.blackBG.DOFade(1, 3f);
             b_death = true;
             time = 10f;
             //Fade
