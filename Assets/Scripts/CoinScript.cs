@@ -14,6 +14,7 @@ public class CoinScript : MonoBehaviour
         if(collision.tag == "Player")
         {
             m_gameManager.coins++;
+            m_gameManager.UpdateDiamondCount();
         }
     }
 }

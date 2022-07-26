@@ -2648,7 +2648,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5535916544502439359, guid: fd36bef8b6dfc4e7bbb7dea7690b4528, type: 3}
       propertyPath: coins
-      value: 0
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 7350270555476457071, guid: fd36bef8b6dfc4e7bbb7dea7690b4528, type: 3}
       propertyPath: m_Name

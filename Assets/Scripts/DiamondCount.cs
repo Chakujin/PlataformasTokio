@@ -7,22 +7,12 @@ public class DiamondCount : MonoBehaviour
     public Image myRender;
     public Image myRender2;
 
-    private GameManager m_gameManager;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        m_gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-
-        updateDiamondCount(m_gameManager.coins);
-    }
-
     //Update inGame
     public void updateDiamondCount(int currentCount)
     {
         int secondNum = 0;
-        m_gameManager.coins = currentCount;
 
+        //Every 10 numbers we add one to increase the decimal place
         while (currentCount >= 10)
         {
             currentCount -= 10;
