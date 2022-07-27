@@ -36,28 +36,9 @@ public class GhostScript : EnemyClass
             {
                 detectHitRigth = true;
                 detectHitLeft = false;
-                bullet.transform.localScale = new Vector2(1, 1);
+                spawnBullet.transform.localPosition = new Vector2(0.6f, spawnBullet.transform.localPosition.y);
 
                 //Detect Player Rigth
-                foreach (Collider2D player in hitPlayer)
-                {
-                    //Attack Player
-                    if (b_startAttack == false)
-                    {
-                        StartCoroutine(StartAttack());
-                        b_startAttack = true;
-                        enemySprite.flipX = false;
-                        move = false;
-                    }
-                }
-            }
-
-            foreach (Collider2D playerLeft in detectLeftPlayer)
-            {
-                detectHitRigth = false;
-                detectHitLeft = true;
-                bullet.transform.localScale = new Vector2(-1, 1);
-                //Detect Player Left
                 foreach (Collider2D player in hitPlayer)
                 {
                     //Attack Player
@@ -70,6 +51,25 @@ public class GhostScript : EnemyClass
                     }
                 }
             }
+
+            foreach (Collider2D playerLeft in detectLeftPlayer)
+            {
+                detectHitRigth = false;
+                detectHitLeft = true;
+                spawnBullet.transform.localPosition = new Vector2(-0.6f, spawnBullet.transform.localPosition.y);
+                //Detect Player Left
+                foreach (Collider2D player in hitPlayer)
+                {
+                    //Attack Player
+                    if (b_startAttack == false)
+                    {
+                        StartCoroutine(StartAttack());
+                        b_startAttack = true;
+                        enemySprite.flipX = false;
+                        move = false;
+                    }
+                }
+            }
         }
     }
 
@@ -78,8 +78,11 @@ public class GhostScript : EnemyClass
         b_startAttack = true;
         enemyAnim.SetTrigger("Attack");
         yield return new WaitForSeconds(0.7f);
+        
         Instantiate(bullet, spawnBullet);
-        yield return new WaitForSeconds(1f);
+        
+        yield return new WaitForSeconds(3f);
+        b_startAttack = false;
     }
 
     private void OnDrawGizmosSelected()

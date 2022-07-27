@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1294506300145574459}
   - component: {fileID: 9107214608838633849}
   - component: {fileID: 7807333820042109044}
+  - component: {fileID: 5378016989225991255}
   m_Layer: 0
   m_Name: BulletGhost
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1675132295141920372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: -1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 3285765131139105644, guid: 9ed374e977dded14fa4a8f1a38054dcf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.18, y: 0.14}
@@ -109,3 +110,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5010681, y: 0.41726986}
   m_EdgeRadius: 0
+--- !u!114 &5378016989225991255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675132295141920372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0496787514fea41a35024970440d88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

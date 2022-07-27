@@ -629,6 +629,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3872890555526153298, guid: 2dc89434f43e26d41b29654d68058645, type: 3}
   m_PrefabInstance: {fileID: 1328872397}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &914919646
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 529718049}
+    m_Modifications:
+    - target: {fileID: 2811816711187842537, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811816711187842537, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5289463165848970264, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6362912572068721231, guid: 131cc45e478250e41917374e943bc596, type: 3}
+      propertyPath: m_Name
+      value: Ghost
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 131cc45e478250e41917374e943bc596, type: 3}
 --- !u!1 &938270146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,17 +2491,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1541204780768085232, guid: 7dd4fb8c8dc761c4080d70706ac90ecb, type: 3}
-      propertyPath: m_Constraints
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5712798127889984481, guid: 7dd4fb8c8dc761c4080d70706ac90ecb, type: 3}
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
-    - target: {fileID: 8839539049664178518, guid: 7dd4fb8c8dc761c4080d70706ac90ecb, type: 3}
-      propertyPath: pointMove.Array.size
-      value: 2
+    - target: {fileID: 5712798127889984481, guid: 7dd4fb8c8dc761c4080d70706ac90ecb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8839539049664178518, guid: 7dd4fb8c8dc761c4080d70706ac90ecb, type: 3}
       propertyPath: pointMove.Array.data[0]
