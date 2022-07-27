@@ -26,8 +26,8 @@ public class PlayerMove : MonoBehaviour
     private const float f_cadenceRoll = 1f;
     [SerializeField]private float f_attackRange;
 
-    public const float maxHeal = 10;
-    private float f_currentHeal;
+    public const int maxHeal = 4;
+    private int f_currentHeal;
 
     private const int i_attackDamage = 1;
 
@@ -48,6 +48,7 @@ public class PlayerMove : MonoBehaviour
         m_gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         m_normalAttackpos = attackPoint.localPosition;
         f_currentHeal = maxHeal;
+        m_gameManager.UpdateHp(f_currentHeal);
     }
 
     // Update is called once per frame
@@ -169,6 +170,8 @@ public class PlayerMove : MonoBehaviour
             //CameraPlayer.Instance.ShakeCamera(3f, 0.25f); // ShakeCam
 
             f_currentHeal -= dmg;
+            m_gameManager.UpdateHp(f_currentHeal);
+
             playerAnimator.SetTrigger("HitPlayer");
             StartCoroutine(TakingDamage());
 
@@ -198,7 +201,6 @@ public class PlayerMove : MonoBehaviour
             yield return new WaitForSeconds(2f);
             this.gameObject.SetActive(false);
         }
-
         yield return new WaitForSeconds(time);
 
         b_hited = false;

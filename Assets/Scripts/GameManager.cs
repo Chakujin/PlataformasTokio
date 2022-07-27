@@ -5,14 +5,22 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int coins;
+    //UI
     public Image blackBG;
+
+    //Coins
+    public int coins;
     private DiamondCount diamondCount;
+
+    //HeartUI
+    public Sprite[] heartSprites;
+    private Image m_heartHP;
 
     private void Start()
     {
         blackBG = GameObject.FindGameObjectWithTag("blackBG").GetComponent<Image>();
         diamondCount = GameObject.FindGameObjectWithTag("DiamondCount").GetComponent<DiamondCount>();
+        m_heartHP = GameObject.FindGameObjectWithTag("HeartUi").GetComponent<Image>();
 
         UpdateDiamondCount();
     }
@@ -20,5 +28,10 @@ public class GameManager : MonoBehaviour
     public void UpdateDiamondCount()
     {
         diamondCount.updateDiamondCount(coins);
+    }
+
+    public void UpdateHp(int num)
+    {
+        m_heartHP.sprite = heartSprites[num];
     }
 }

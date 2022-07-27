@@ -43,3 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9da924a62cf848c7af18f4cb380f42f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackBG: {fileID: 0}
+  coins: 0
+  heartSprites:
+  - {fileID: -4578087693726602459, guid: 84415fb1b6179034cb7dcc0567734a3c, type: 3}
+  - {fileID: -994267376658378851, guid: 84415fb1b6179034cb7dcc0567734a3c, type: 3}
+  - {fileID: 3227778937469392490, guid: 84415fb1b6179034cb7dcc0567734a3c, type: 3}
+  - {fileID: -5025174812137501099, guid: 84415fb1b6179034cb7dcc0567734a3c, type: 3}
+  - {fileID: -367015839217504639, guid: 84415fb1b6179034cb7dcc0567734a3c, type: 3}

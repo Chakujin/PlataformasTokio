@@ -2646,10 +2646,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5535916544502439359, guid: fd36bef8b6dfc4e7bbb7dea7690b4528, type: 3}
-      propertyPath: coins
-      value: 26
-      objectReference: {fileID: 0}
     - target: {fileID: 7350270555476457071, guid: fd36bef8b6dfc4e7bbb7dea7690b4528, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -2761,6 +2757,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1227773525, guid: bb352bd1578761b4f809d46b358b2baf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1227773527, guid: bb352bd1578761b4f809d46b358b2baf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6b98fe36044c37040a3a936bf357c710, type: 2}
     - target: {fileID: 1596489765507569245, guid: bb352bd1578761b4f809d46b358b2baf, type: 3}
       propertyPath: m_Name
       value: InGameCanvas
