@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18cfa0c82c50ad343976abf9fadea0a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectLevelMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
