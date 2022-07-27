@@ -202,7 +202,6 @@ public class PlayerMove : MonoBehaviour
             this.gameObject.SetActive(false);
         }
         yield return new WaitForSeconds(time);
-
         b_hited = false;
     }
 

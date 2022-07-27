@@ -79,8 +79,13 @@ public class GhostScript : EnemyClass
         enemyAnim.SetTrigger("Attack");
         yield return new WaitForSeconds(0.7f);
         
-        Instantiate(bullet, spawnBullet);
-        
+        GameObject spawned = Instantiate(bullet, spawnBullet);
+        if(detectHitLeft == true)
+        {
+            spawned.GetComponent<BulletScript>().speed = -4;
+            spawned.GetComponent<BulletScript>().spriteRenderer.flipX = true;
+        }
+             
         yield return new WaitForSeconds(3f);
         b_startAttack = false;
     }

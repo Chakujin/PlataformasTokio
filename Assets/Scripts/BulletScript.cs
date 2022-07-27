@@ -4,15 +4,9 @@ public class BulletScript : MonoBehaviour
 {
     private const float f_timeDelete = 4f;
     private float f_currenTime = 0;
-    private float f_speed = 4;
+    public float speed = 4;
+    public SpriteRenderer spriteRenderer;
 
-    private void Start()
-    {
-        if(transform.localScale.x == -1)
-        {
-            f_speed = f_speed * -1;
-        }
-    }
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +16,7 @@ public class BulletScript : MonoBehaviour
             Destroy(gameObject);
         }
         
-        transform.localPosition = new Vector2(transform.localPosition.x + f_speed * Time.deltaTime,transform.localPosition.y);
+        transform.localPosition = new Vector2(transform.localPosition.x + speed * Time.deltaTime,transform.localPosition.y);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
