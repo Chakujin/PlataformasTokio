@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49739931ef58cfd44a32cb10fee2696a, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  itemName: 
-  Damage: 0
-  myObject: {fileID: 0}
-  itemImage: {fileID: 0}
+  sceneName: Level 1
+  sceneImage: {fileID: 0}
+  sceneLoad: 1
+  isUnloked: 0

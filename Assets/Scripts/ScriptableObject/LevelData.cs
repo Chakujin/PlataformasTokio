@@ -4,7 +4,8 @@
 public class LevelData : ScriptableObject
 {
     //Items Properties
-    public string itemName;
-    public Sprite itemImage;
-    // public Image backgroundSelected;
+    public string sceneName;
+    public Sprite sceneImage;
+    public int sceneLoad;
+    public bool isUnloked;
 }
