@@ -163,25 +163,28 @@ public class PlayerMove : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
-        const int force = 20;
-        if (b_death == false)
+        if(b_roll == false)
         {
-            //FindObjectOfType<AudioManager>().Play("Hit");
-            //CameraPlayer.Instance.ShakeCamera(3f, 0.25f); // ShakeCam
-
-            f_currentHeal -= dmg;
-            m_gameManager.UpdateHp(f_currentHeal);
-
-            playerAnimator.SetTrigger("HitPlayer");
-            StartCoroutine(TakingDamage());
-
-            if (b_isRigth)
+            const int force = 20;
+            if (b_death == false)
             {
-                controller.m_Rigidbody2D.AddForceAtPosition(new Vector2(1,0.1f) * force, transform.localPosition, ForceMode2D.Impulse);
-            }
-            else if (b_isLeft)
-            {
-                controller.m_Rigidbody2D.AddForceAtPosition(new Vector2(-1, 0.1f) * force, transform.localPosition, ForceMode2D.Impulse);
+                //FindObjectOfType<AudioManager>().Play("Hit");
+                //CameraPlayer.Instance.ShakeCamera(3f, 0.25f); // ShakeCam
+
+                f_currentHeal -= dmg;
+                m_gameManager.UpdateHp(f_currentHeal);
+
+                playerAnimator.SetTrigger("HitPlayer");
+                StartCoroutine(TakingDamage());
+
+                if (b_isRigth)
+                {
+                    controller.m_Rigidbody2D.AddForceAtPosition(new Vector2(1, 0.1f) * force, transform.localPosition, ForceMode2D.Impulse);
+                }
+                else if (b_isLeft)
+                {
+                    controller.m_Rigidbody2D.AddForceAtPosition(new Vector2(-1, 0.1f) * force, transform.localPosition, ForceMode2D.Impulse);
+                }
             }
         }
     }
@@ -197,7 +200,7 @@ public class PlayerMove : MonoBehaviour
             m_gameManager.blackBG.DOFade(1, 3f);
             b_death = true;
             time = 10f;
-            //Fade
+            //ReloadScene
             yield return new WaitForSeconds(2f);
             this.gameObject.SetActive(false);
         }
