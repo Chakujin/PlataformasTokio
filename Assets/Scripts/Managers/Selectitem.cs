@@ -9,7 +9,7 @@ public class Selectitem : MonoBehaviour
     
     //Data
     public GameObject LevelItem;
-    private LevelData[] m_levelData;
+    [SerializeField]private LevelData[] m_levelData;
 
     // Start is called before the first frame update
 
@@ -20,11 +20,24 @@ public class Selectitem : MonoBehaviour
 
     private void OnEnable()
     {
+        StartCoroutine(SpawnObjects());
+    }
+
+    private IEnumerator SpawnObjects()
+    {
         for (int i = 0; i < m_levelData.Length; i++)
         {
             GameObject go = Instantiate(LevelItem, itemConstainer); //instanciate items
-            LevelObject objectData = go.GetComponent<LevelObject>();
-            objectData.Data = m_levelData[i];
+            LevelObject objectData = go.GetComponent<LevelObject>(); //Get script
+            objectData.Data = m_levelData[i]; // Add Data LevelObject Data
+
+            //------------------------------------------------------------------
+            //---------------------------ANIMATIONS INSTANCE--------------------
+            //------------------------------------------------------------------
+            
+            go.transform.DOScale(0, 0f); //Reset sclae
+            go.transform.DOScale(1, 0.75f).SetEase(Ease.OutElastic);//Animation
+            yield return new WaitForSeconds(1f);//Delay spawn next object
         }
     }
 }

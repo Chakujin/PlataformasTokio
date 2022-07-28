@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 146120641}
   - component: {fileID: 146120640}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1232,8 +1232,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1890635919}
   - component: {fileID: 1890635920}
+  - component: {fileID: 1890635921}
   m_Layer: 5
-  m_Name: Levels
+  m_Name: LevelsGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1271,17 +1272,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 100
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
-  m_Spacing: {x: 0, y: 0}
+  m_CellSize: {x: 300, y: 100}
+  m_Spacing: {x: 300, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1890635921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890635918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628184f264eccb8409f242971bdad75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemConstainer: {fileID: 1890635919}
+  LevelItem: {fileID: 5724939586594125426, guid: 805bebc5898ceda4ea65ab18ab728253, type: 3}
+  m_levelData:
+  - {fileID: 11400000, guid: dcfd360368d69f242acd269b95584900, type: 2}
+  - {fileID: 11400000, guid: dcfd360368d69f242acd269b95584900, type: 2}
+  - {fileID: 11400000, guid: dcfd360368d69f242acd269b95584900, type: 2}
 --- !u!1 &1968563478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1294,7 +1313,6 @@ GameObject:
   - component: {fileID: 1968563482}
   - component: {fileID: 1968563481}
   - component: {fileID: 1968563480}
-  - component: {fileID: 1968563483}
   m_Layer: 5
   m_Name: SelectLevelCanvas
   m_TagString: Untagged
@@ -1384,20 +1402,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1968563483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968563478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 628184f264eccb8409f242971bdad75c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemConstainer: {fileID: 1968563479}
-  LevelItem: {fileID: 5724939586594125426, guid: 805bebc5898ceda4ea65ab18ab728253, type: 3}
 --- !u!1 &2069418011
 GameObject:
   m_ObjectHideFlags: 0

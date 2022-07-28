@@ -254,7 +254,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1072704862156735948}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3487214737019763028}
+        m_TargetAssemblyTypeName: LevelObject, Assembly-CSharp
+        m_MethodName: ClickButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5627406506338361482
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +405,7 @@ MonoBehaviour:
   image: {fileID: 70917343085294691}
   nameText: {fileID: 2911822237495959139}
   sceneLoad: 0
+  isUnloked: 0
 --- !u!1 &7806896036318385014
 GameObject:
   m_ObjectHideFlags: 0

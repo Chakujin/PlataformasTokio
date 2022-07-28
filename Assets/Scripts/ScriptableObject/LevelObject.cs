@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelObject : MonoBehaviour
 {
@@ -22,5 +23,11 @@ public class LevelObject : MonoBehaviour
             sceneLoad = m_data.sceneLoad;
             isUnloked = m_data.isUnloked;
         }
+    }
+
+    //Button Load Scene
+    public void ClickButton()
+    {
+        SceneManager.LoadScene(sceneLoad);
     }
 }
