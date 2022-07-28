@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelObject : MonoBehaviour
 {
+    //SCRIPTABLE OBJECT USE FOR MAIN MENU LEVEL SELECTION
     //Data
     private LevelData m_data;
     public Image image;
     public TextMeshProUGUI nameText;
     public int sceneLoad;
-    public bool isUnloked;
+    public GameObject myButton;
+
+    private GameData m_gameData;
+    private bool b_isUnloked;
 
     //Data to ItemManager
     public LevelData Data
@@ -21,10 +25,40 @@ public class LevelObject : MonoBehaviour
             image.sprite = m_data.sceneImage;
             nameText.text = m_data.sceneName;
             sceneLoad = m_data.sceneLoad;
-            isUnloked = m_data.isUnloked;
         }
     }
+    private void Start()
+    {
+        m_gameData = GameObject.FindGameObjectWithTag("GameData").GetComponent<GameData>();
 
+        switch (sceneLoad) //No se como optimizar esto
+        {
+            case 1:
+                b_isUnloked = m_gameData.level1;
+                break;
+            case 2:
+                b_isUnloked = m_gameData.level2;
+                break;
+            case 3:
+                b_isUnloked = m_gameData.level3;
+                break;
+            case 4:
+                b_isUnloked = m_gameData.level4;
+                break;
+            case 5:
+                b_isUnloked = m_gameData.level5;
+                break;
+            case 6:
+                b_isUnloked = m_gameData.level6;
+                break;
+            default:
+                Debug.Log("This scene is not built or programmed");
+                break;
+        }
+
+        if (b_isUnloked == false)
+            myButton.SetActive(false);
+    }
     //Button Load Scene
     public void ClickButton()
     {

@@ -406,6 +406,7 @@ MonoBehaviour:
   nameText: {fileID: 2911822237495959139}
   sceneLoad: 0
   isUnloked: 0
+  myButton: {fileID: 2336354762929906303}
 --- !u!1 &7806896036318385014
 GameObject:
   m_ObjectHideFlags: 0

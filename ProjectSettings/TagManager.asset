@@ -8,6 +8,7 @@ TagManager:
   - blackBG
   - DiamondCount
   - HeartUi
+  - GameData
   layers:
   - Default
   - TransparentFX
