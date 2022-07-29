@@ -185,8 +185,8 @@ MonoBehaviour:
   m_CrouchDisableCollider: {fileID: 353156056293219315}
   m_Grounded: 0
   m_Rigidbody2D: {fileID: 0}
-  rigthDetector: {fileID: 0}
-  leftDetector: {fileID: 0}
+  rigthDetector: {fileID: 3872890555526153298}
+  leftDetector: {fileID: 8588793689142855526}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -233,7 +233,6 @@ MonoBehaviour:
   runSpeed: 40
   b_roll: 0
   f_attackRange: 0.5
-  maxHeal: 10
   m_crouchAttackpos: {x: 0.28, y: -0.12}
   playerAnimator: {fileID: 2091858608588854935}
   playerColliders:
@@ -277,7 +276,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.07820687}
+  m_Offset: {x: 0, y: -0.082686}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -288,7 +287,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.29184198}
+  m_Size: {x: 0.12, y: 0.2828837}
   m_EdgeRadius: 0
 --- !u!58 &353156056293219315
 CircleCollider2D:

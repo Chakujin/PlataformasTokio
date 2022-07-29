@@ -20,6 +20,21 @@ TextureImporter:
   - first:
       213: 8363047684650912007
     second: shop_anim_5
+  - first:
+      213: 6148641648076903915
+    second: shop_anim_6
+  - first:
+      213: 2438464394787915291
+    second: shop_anim_7
+  - first:
+      213: 6290392290864417
+    second: shop_anim_8
+  - first:
+      213: -3090753169418455008
+    second: shop_anim_9
+  - first:
+      213: 833213197867434526
+    second: shop_anim_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
