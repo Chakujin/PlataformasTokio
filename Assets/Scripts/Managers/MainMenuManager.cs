@@ -29,7 +29,7 @@ public class MainMenuManager : MonoBehaviour
         ColorTitle();
         //Find GameObjects
         m_gameData = GameObject.FindGameObjectWithTag("GameData").GetComponent<GameData>();
-        /*
+        
         //Set Volume
         float MainVolume = m_gameData.MainVolume;
         mainVolumeSlider.value = MainVolume;
@@ -58,7 +58,7 @@ public class MainMenuManager : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
-        */
+        
     }
 
     //UI
@@ -71,7 +71,7 @@ public class MainMenuManager : MonoBehaviour
     //Sound Voids
     public void SetVolume(float sliderValue)
     {
-        audioMixer.SetFloat("Master", Mathf.Log10(sliderValue) * 20);
+        audioMixer.SetFloat("MasterVolume", Mathf.Log10(sliderValue) * 20);
         m_gameData.MainVolume = sliderValue;
 
         if (sliderValue == 0)
@@ -91,7 +91,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreen)
     {
-        FindObjectOfType<AudioSource>().Play();
+        //FindObjectOfType<AudioSource>().Play();
         Screen.fullScreen = isFullscreen;
     }
 }

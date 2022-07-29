@@ -39,7 +39,7 @@ public class ButtonManager : MonoBehaviour
 
     public void Back()
     {
-
+        optionsMenu.SetActive(false);
     }
 
     public void QuitGame()
