@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 74b4550f3180ee341a1e37078732da20, type: 2}
+  m_sharedMaterial: {fileID: 8831882501115887181, guid: 74b4550f3180ee341a1e37078732da20, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -405,7 +405,6 @@ MonoBehaviour:
   image: {fileID: 70917343085294691}
   nameText: {fileID: 2911822237495959139}
   sceneLoad: 0
-  isUnloked: 0
   myButton: {fileID: 2336354762929906303}
 --- !u!1 &7806896036318385014
 GameObject:
@@ -474,8 +473,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select Level
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 74b4550f3180ee341a1e37078732da20, type: 2}
+  m_sharedMaterial: {fileID: 8831882501115887181, guid: 74b4550f3180ee341a1e37078732da20, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

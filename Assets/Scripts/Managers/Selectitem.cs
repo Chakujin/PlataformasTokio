@@ -18,7 +18,7 @@ public class Selectitem : MonoBehaviour
 
     }
 
-    private void OnEnable()
+    public void LoadObjects()
     {
         StartCoroutine(SpawnObjects());
     }

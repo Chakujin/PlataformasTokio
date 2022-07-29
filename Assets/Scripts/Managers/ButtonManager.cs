@@ -7,6 +7,8 @@ public class ButtonManager : MonoBehaviour
     public GameObject selectLevelMenu;
     public GameObject optionsMenu;
     public GameData gameData;
+
+    public Selectitem selectItem;
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,6 +33,7 @@ public class ButtonManager : MonoBehaviour
     public void SelectLevel()
     {
         selectLevelMenu.SetActive(true);
+        selectItem.LoadObjects();
     }
     public void Options()
     {
