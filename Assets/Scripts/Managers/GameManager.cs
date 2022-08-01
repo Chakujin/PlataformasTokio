@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     //HeartUI
     public Sprite[] heartSprites;
-    private Image m_heartHP;
+    [SerializeField]private Image m_heartHP;
 
     private void Start()
     {
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateHp(int num)
     {
+        Debug.Log(num);
         m_heartHP.sprite = heartSprites[num];
     }
 }

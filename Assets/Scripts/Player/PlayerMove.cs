@@ -7,7 +7,7 @@ public class PlayerMove : MonoBehaviour
 {
     #region Variable
     //Managers
-    private GameManager m_gameManager;
+    [SerializeField]private GameManager m_gameManager;
 
     //Move + Attack
     public CharacterController2D controller;
@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]private float f_attackRange;
 
     public const int maxHeal = 4;
-    private int f_currentHeal;
+    [SerializeField]private int f_currentHeal;
 
     private const int i_attackDamage = 1;
 
@@ -216,7 +216,6 @@ public class PlayerMove : MonoBehaviour
             this.gameObject.SetActive(false);
             
             //ReloadScene
-
             Scene scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
         }
