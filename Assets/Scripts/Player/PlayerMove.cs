@@ -1,6 +1,7 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -200,9 +201,13 @@ public class PlayerMove : MonoBehaviour
             m_gameManager.blackBG.DOFade(1, 3f);
             b_death = true;
             time = 10f;
-            //ReloadScene
             yield return new WaitForSeconds(2f);
             this.gameObject.SetActive(false);
+            
+            //ReloadScene
+
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
         }
         yield return new WaitForSeconds(time);
         b_hited = false;
