@@ -19,6 +19,7 @@ public class ShopScript : MonoBehaviour
     {
         if(collision.tag == "Player")
         StartCoroutine(EndGame());
+        collision.GetComponent<PlayerMove>().runSpeed = 0f;
         collision.GetComponent<PlayerMove>().shopTrigger = true;
     }
 

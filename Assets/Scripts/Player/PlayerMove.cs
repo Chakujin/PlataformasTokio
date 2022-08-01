@@ -61,7 +61,7 @@ public class PlayerMove : MonoBehaviour
         f_currenTime += Time.deltaTime;
         f_currenTimeRoll += Time.deltaTime;
 
-        if(b_hited == false && shopTrigger == false)
+        if(b_hited == false)
         {
             f_horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         }
@@ -71,7 +71,7 @@ public class PlayerMove : MonoBehaviour
 
         playerAnimator.SetBool("isGrounded", controller.m_Grounded);
 
-        if (b_hited == false && shopTrigger == false)
+        if (b_hited == false)
         {
             //-----------------------------------------------------------------------
             //Inputs
@@ -111,6 +111,11 @@ public class PlayerMove : MonoBehaviour
                 StartCoroutine(IsRolling());
                 f_currenTimeRoll = 0f;
             }
+        }
+
+        if(shopTrigger == true)
+        {
+            transform.position = transform.position;
         }
     }
 
@@ -175,11 +180,11 @@ public class PlayerMove : MonoBehaviour
                 //FindObjectOfType<AudioManager>().Play("Hit");
 
                 f_currentHeal -= dmg;
-                if (f_currentHeal > 0)
+                if (f_currentHeal < 0)
                 {
-                    m_gameManager.UpdateHp(f_currentHeal);
+                    f_currentHeal = 0;
                 }
-
+                m_gameManager.UpdateHp(f_currentHeal);
                 playerAnimator.SetTrigger("HitPlayer");
                 StartCoroutine(TakingDamage());
 
@@ -202,6 +207,7 @@ public class PlayerMove : MonoBehaviour
 
         if (f_currentHeal <= 0)
         {
+            runSpeed = 0f;
             playerAnimator.SetBool("Death", true);
             m_gameManager.blackBG.DOFade(1, 3f);
             b_death = true;
