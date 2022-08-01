@@ -42,15 +42,6 @@ public class LevelObject : MonoBehaviour
             case 3:
                 b_isUnloked = m_gameData.level3;
                 break;
-            case 4:
-                b_isUnloked = m_gameData.level4;
-                break;
-            case 5:
-                b_isUnloked = m_gameData.level5;
-                break;
-            case 6:
-                b_isUnloked = m_gameData.level6;
-                break;
             default:
                 Debug.Log("This scene is not built or programmed");
                 break;

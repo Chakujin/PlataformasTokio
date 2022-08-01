@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
+    #region Variable
     //Managers
     private GameManager m_gameManager;
 
@@ -42,6 +43,8 @@ public class PlayerMove : MonoBehaviour
     public Transform attackPoint;
 
     private float f_speedDir;
+    public bool shopTrigger = false;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -58,7 +61,7 @@ public class PlayerMove : MonoBehaviour
         f_currenTime += Time.deltaTime;
         f_currenTimeRoll += Time.deltaTime;
 
-        if(b_hited == false)
+        if(b_hited == false && shopTrigger == false)
         {
             f_horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         }
@@ -68,7 +71,7 @@ public class PlayerMove : MonoBehaviour
 
         playerAnimator.SetBool("isGrounded", controller.m_Grounded);
 
-        if (b_hited == false)
+        if (b_hited == false && shopTrigger == false)
         {
             //-----------------------------------------------------------------------
             //Inputs
@@ -170,10 +173,12 @@ public class PlayerMove : MonoBehaviour
             if (b_death == false)
             {
                 //FindObjectOfType<AudioManager>().Play("Hit");
-                //CameraPlayer.Instance.ShakeCamera(3f, 0.25f); // ShakeCam
 
                 f_currentHeal -= dmg;
-                m_gameManager.UpdateHp(f_currentHeal);
+                if (f_currentHeal > 0)
+                {
+                    m_gameManager.UpdateHp(f_currentHeal);
+                }
 
                 playerAnimator.SetTrigger("HitPlayer");
                 StartCoroutine(TakingDamage());
@@ -192,7 +197,7 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator TakingDamage()
     {
-        float time = 1f;
+        float time = 0.5f;
         b_hited = true;
 
         if (f_currentHeal <= 0)

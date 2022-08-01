@@ -19,6 +19,7 @@ public class ShopScript : MonoBehaviour
     {
         if(collision.tag == "Player")
         StartCoroutine(EndGame());
+        collision.GetComponent<PlayerMove>().shopTrigger = true;
     }
 
     private IEnumerator EndGame()
@@ -33,15 +34,6 @@ public class ShopScript : MonoBehaviour
                 break;
             case 3:
                 m_gameData.level3 = true;
-                break;
-            case 4:
-                m_gameData.level4 = true;
-                break;
-            case 5:
-                m_gameData.level5 = true;
-                break;
-            case 6:
-                 m_gameData.level6 = true;
                 break;
             default:
                 Debug.Log("This scene is not built or programmed");

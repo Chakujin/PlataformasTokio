@@ -15,6 +15,7 @@ public class CoinScript : MonoBehaviour
         {
             m_gameManager.coins++;
             m_gameManager.UpdateDiamondCount();
+            Destroy(gameObject);
         }
     }
 }
