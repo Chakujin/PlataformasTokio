@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public Image blackBG;
 
     //Coins
-    public int coins;
+    public static int coins;
     private DiamondCount diamondCount;
 
     //HeartUI
@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateDiamondCount()
     {
+        coins++;
         diamondCount.updateDiamondCount(coins);
     }
 
