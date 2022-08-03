@@ -53,6 +53,7 @@ public class LevelObject : MonoBehaviour
     //Button Load Scene
     public void ClickButton()
     {
+        FindObjectOfType<AudioManager>().Play("Button");
         SceneManager.LoadScene(sceneLoad);
     }
 }

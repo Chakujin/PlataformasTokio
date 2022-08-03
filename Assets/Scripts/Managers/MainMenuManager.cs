@@ -82,7 +82,7 @@ public class MainMenuManager : MonoBehaviour
     //Resolution Voids
     public void SetResolution(int resolutionIndex)
     {
-        FindObjectOfType<AudioSource>().Play();
+        FindObjectOfType<AudioManager>().Play("Button");
 
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
@@ -90,7 +90,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreen)
     {
-        //FindObjectOfType<AudioSource>().Play();
+        FindObjectOfType<AudioManager>().Play("Button");
         Screen.fullScreen = isFullscreen;
     }
 }
