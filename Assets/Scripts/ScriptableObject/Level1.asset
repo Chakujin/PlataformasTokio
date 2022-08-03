@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   sceneName: Level 1
-  sceneImage: {fileID: -4680654449115406751, guid: 8d7b2986135992c43a984f9c76049cff, type: 3}
+  sceneImage: {fileID: 21300000, guid: c61bc474651d73147ba467c6b1c3eddf, type: 3}
   sceneLoad: 1
   isUnloked: 0
