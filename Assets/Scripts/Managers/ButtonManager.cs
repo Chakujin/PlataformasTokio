@@ -48,6 +48,7 @@ public class ButtonManager : MonoBehaviour
 
     public void BackSelectItem()
     {
+        FindObjectOfType<AudioManager>().Play("Button");
         selectItem.ResetList();
         selectLevelMenu.SetActive(false);
     }

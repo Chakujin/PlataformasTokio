@@ -13,6 +13,7 @@ public class CoinScript : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            FindObjectOfType<AudioManager>().Play("Coin");
             m_gameManager.UpdateDiamondCount();
             Destroy(gameObject);
         }

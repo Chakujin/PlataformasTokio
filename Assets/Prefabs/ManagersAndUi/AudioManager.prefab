@@ -66,3 +66,69 @@ MonoBehaviour:
     loop: 0
     PlayOnAwake: 0
     source: {fileID: 0}
+  - name: BGM
+    clip: {fileID: 8300000, guid: e5a23904e8e72a14e817c6506147bb06, type: 3}
+    audioMixer: {fileID: 24100000, guid: 2d3cea8c6fcf74005a74772963200646, type: 2}
+    minPitch: 1
+    maxPitch: 1
+    volume: 1
+    pitch: 1
+    outputMixer: Master
+    loop: 1
+    PlayOnAwake: 1
+    source: {fileID: 0}
+  - name: Coin
+    clip: {fileID: 8300000, guid: 7e06681570e83964bbd059c985449ae6, type: 3}
+    audioMixer: {fileID: 24100000, guid: 2d3cea8c6fcf74005a74772963200646, type: 2}
+    minPitch: 1
+    maxPitch: 2
+    volume: 1
+    pitch: 2
+    outputMixer: Master
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: EnemyDie
+    clip: {fileID: 8300000, guid: 1eecc3147a8fc564cbf24677095a9597, type: 3}
+    audioMixer: {fileID: 24100000, guid: 2d3cea8c6fcf74005a74772963200646, type: 2}
+    minPitch: 1
+    maxPitch: 2
+    volume: 1
+    pitch: 2
+    outputMixer: Master
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: cf193565d51e5a841a4f3f9a34a185ab, type: 3}
+    audioMixer: {fileID: 24100000, guid: 2d3cea8c6fcf74005a74772963200646, type: 2}
+    minPitch: 1
+    maxPitch: 2
+    volume: 1
+    pitch: 2
+    outputMixer: Master
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: HitEnemy
+    clip: {fileID: 8300000, guid: dfa05e2479a34884b8b9a84acdba2ea5, type: 3}
+    audioMixer: {fileID: 24100000, guid: 2d3cea8c6fcf74005a74772963200646, type: 2}
+    minPitch: 1
+    maxPitch: 2
+    volume: 1
+    pitch: 2
+    outputMixer: Master
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}
+  - name: Jump
+    clip: {fileID: 8300000, guid: c68463966e6a6074282580381b058f58, type: 3}
+    audioMixer: {fileID: 24100000, guid: 2d3cea8c6fcf74005a74772963200646, type: 2}
+    minPitch: 1
+    maxPitch: 2
+    volume: 1
+    pitch: 2
+    outputMixer: Master
+    loop: 0
+    PlayOnAwake: 0
+    source: {fileID: 0}

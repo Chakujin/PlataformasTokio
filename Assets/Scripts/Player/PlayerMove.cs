@@ -27,10 +27,6 @@ public class PlayerMove : MonoBehaviour
     private float f_currenTimeRoll = 0;
     private const float f_cadenceRoll = 1f;
     [SerializeField]private float f_attackRange;
-
-    public const int maxHeal = 4;
-    [SerializeField]private int f_currentHeal;
-
     private const int i_attackDamage = 1;
 
     private Vector2 m_sizeDetector = new Vector2(0.83f,1.40f);
@@ -44,6 +40,11 @@ public class PlayerMove : MonoBehaviour
 
     private float f_speedDir;
     public bool shopTrigger = false;
+
+    //HEAL
+    public const int maxHeal = 4;
+    [SerializeField] private int f_currentHeal;
+
     #endregion
 
     // Start is called before the first frame update
@@ -66,20 +67,22 @@ public class PlayerMove : MonoBehaviour
             f_horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         }
 
+        //Player is moving negative or possitive
         f_speedDir = Mathf.Abs(f_horizontalMove);
-        playerAnimator.SetFloat("Speed", f_speedDir);
+        playerAnimator.SetFloat("Speed", f_speedDir); //Animation
 
-        playerAnimator.SetBool("isGrounded", controller.m_Grounded);
+        playerAnimator.SetBool("isGrounded", controller.m_Grounded);//Animation
 
         if (b_hited == false)
         {
             //-----------------------------------------------------------------------
-            //Inputs
+            //------------------------------INPUTS-----------------------------------
             //-----------------------------------------------------------------------
             if (Input.GetButtonDown("Jump") && b_crouch == false && b_jump == false && b_roll == false)
             {
                 b_jump = true;
                 playerAnimator.SetBool("IsJumping", true);
+                FindObjectOfType<AudioManager>().Play("Jump");
             }
 
             if (Input.GetButtonDown("Crouch"))
@@ -90,7 +93,8 @@ public class PlayerMove : MonoBehaviour
             {
                 b_crouch = false;
             }
-
+            
+            //Attack
             if (Input.GetButtonDown("Fire1") && f_currenTime >= f_cadence && controller.m_Grounded == true && b_roll == false)
             {
                 if (f_speedDir > 0.01f)
@@ -106,6 +110,7 @@ public class PlayerMove : MonoBehaviour
                 Attack();
             }
 
+            //Roll
             if (Input.GetButtonDown("Fire2") && f_currenTimeRoll >= f_cadenceRoll && f_horizontalMove != 0 && b_crouch == false && controller.m_Grounded == true)
             {
                 StartCoroutine(IsRolling());
@@ -113,12 +118,14 @@ public class PlayerMove : MonoBehaviour
             }
         }
 
+        //If player trigger with the shop
         if(shopTrigger == true)
         {
             transform.position = transform.position;
             b_roll = true;
         }
         
+        //If player die
         if (b_death == true)
         {
             transform.position = transform.position;
@@ -170,7 +177,10 @@ public class PlayerMove : MonoBehaviour
             attackPoint.localPosition = m_normalAttackpos;
         }
 
+        //Activate trigger to hit 
         Collider2D[] hitEnemyes = Physics2D.OverlapCircleAll(attackPoint.position, f_attackRange, enemyLayer);
+        
+        //If find any enemy
         foreach (Collider2D enemy in hitEnemyes)
         {
             enemy.GetComponent<EnemyClass>().TakeDamage(i_attackDamage);
@@ -181,20 +191,22 @@ public class PlayerMove : MonoBehaviour
     {
         if(b_roll == false)
         {
-            const int force = 20;
-            if (b_death == false)
+            const int force = 20; //Force rigidbody
+            
+            if (b_death == false) //If dont die player
             {
                 FindObjectOfType<AudioManager>().Play("Hit");
 
-                f_currentHeal -= dmg;
-                if (f_currentHeal < 0)
+                f_currentHeal -= dmg; //Damage apply
+                if (f_currentHeal < 0) // Dont pass negative num.
                 {
                     f_currentHeal = 0;
                 }
-                m_gameManager.UpdateHp(f_currentHeal);
-                playerAnimator.SetTrigger("HitPlayer");
+                m_gameManager.UpdateHp(f_currentHeal); //Update UI hearts
+                playerAnimator.SetTrigger("HitPlayer");//Animation
                 StartCoroutine(TakingDamage());
 
+                //Force push
                 if (b_isRigth)
                 {
                     controller.m_Rigidbody2D.AddForceAtPosition(new Vector2(1, 0.1f) * force, transform.localPosition, ForceMode2D.Impulse);
@@ -215,10 +227,11 @@ public class PlayerMove : MonoBehaviour
         if (f_currentHeal <= 0)
         {
             runSpeed = 0f;
-            playerAnimator.SetBool("Death", true);
-            m_gameManager.blackBG.DOFade(1, 3f);
+            playerAnimator.SetBool("Death", true); //Animation
+            FindObjectOfType<AudioManager>().Play("GameOver"); //Audio
+            m_gameManager.blackBG.DOFade(1, 3f); //Fade Scene
             b_death = true;
-            time = 10f;
+            time = 10f; //Extend time
             yield return new WaitForSeconds(2f);
             this.gameObject.SetActive(false);
             
@@ -232,9 +245,9 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator IsRolling()
     {
-        const int force = 1000;
+        const int force = 1000; // Force Rigidbody
         b_roll = true;
-        playerAnimator.SetBool("Roll", true);
+        playerAnimator.SetBool("Roll", true); //Animation
         
         if (f_horizontalMove >= 40)
         {
@@ -247,7 +260,7 @@ public class PlayerMove : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
 
-        playerAnimator.SetBool("Roll", false);
+        playerAnimator.SetBool("Roll", false); //Animation
         b_roll = false;
     }
     private void OnDrawGizmosSelected()

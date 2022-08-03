@@ -18,6 +18,7 @@ public class EnemyClass : MonoBehaviour
 
     public void TakeDamage(int dmg)
     {
+        FindObjectOfType<AudioManager>().Play("HitEnemy");
         StartCoroutine(DamageCor(dmg));
     }
 
@@ -30,6 +31,7 @@ public class EnemyClass : MonoBehaviour
 
         if (heal <= 0)
         {
+            FindObjectOfType<AudioManager>().Play("EnemyDie");
             timeStop = 10;
             die = true;
             speed = 0;

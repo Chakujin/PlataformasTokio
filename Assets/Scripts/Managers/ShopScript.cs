@@ -28,12 +28,9 @@ public class ShopScript : MonoBehaviour
         switch (SceneManager.GetActiveScene().buildIndex) //No se como optimizar esto
         {
             case 1:
-                m_gameData.level1 = true;
-                break;
-            case 2:
                 m_gameData.level2 = true;
                 break;
-            case 3:
+            case 2:
                 m_gameData.level3 = true;
                 break;
             default:
