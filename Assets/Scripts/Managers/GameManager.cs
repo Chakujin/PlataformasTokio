@@ -14,13 +14,11 @@ public class GameManager : MonoBehaviour
     public Sprite[] heartSprites;
     [SerializeField]private Image m_heartHP;
 
-    private void Start()
+    private void Awake()
     {
         blackBG = GameObject.FindGameObjectWithTag("blackBG").GetComponent<Image>();
         diamondCount = GameObject.FindGameObjectWithTag("DiamondCount").GetComponent<DiamondCount>();
         m_heartHP = GameObject.FindGameObjectWithTag("HeartUi").GetComponent<Image>();
-
-        UpdateDiamondCount();
     }
 
     public void UpdateDiamondCount()

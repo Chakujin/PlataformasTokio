@@ -116,6 +116,13 @@ public class PlayerMove : MonoBehaviour
         if(shopTrigger == true)
         {
             transform.position = transform.position;
+            b_roll = true;
+        }
+        
+        if (b_death == true)
+        {
+            transform.position = transform.position;
+            controller.m_Rigidbody2D.bodyType = RigidbodyType2D.Static;
         }
     }
 
