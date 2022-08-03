@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
 
     public void UpdateHp(int num)
     {
-        Debug.Log(num);
         m_heartHP.sprite = heartSprites[num];
     }
 }

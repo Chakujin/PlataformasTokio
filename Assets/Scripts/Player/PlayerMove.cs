@@ -177,7 +177,7 @@ public class PlayerMove : MonoBehaviour
             const int force = 20;
             if (b_death == false)
             {
-                //FindObjectOfType<AudioManager>().Play("Hit");
+                FindObjectOfType<AudioManager>().Play("Hit");
 
                 f_currentHeal -= dmg;
                 if (f_currentHeal < 0)

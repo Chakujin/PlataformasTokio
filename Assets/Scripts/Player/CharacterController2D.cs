@@ -151,4 +151,10 @@ public class CharacterController2D : MonoBehaviour
 		rigthDetector.localPosition = new Vector2(rigthDetector.localPosition.x * -1, rigthDetector.localPosition.y);
 		leftDetector.localPosition = new Vector2(leftDetector.localPosition.x * -1, leftDetector.localPosition.y);
 	}
+	/*
+    private void OnDrawGizmosSelected()
+    {
+		Gizmos.DrawSphere(m_GroundCheck.position, k_GroundedRadius);
+	}
+	*/
 }
