@@ -11,6 +11,7 @@ public class SkeletonAttackState : MonoBehaviour
     //VAR
     private Animator m_myAnim;
     private PlayerMove m_playerMove;
+    private bool b_firtsTime = false;
 
     // Start is called before the first frame update
     void Start()
@@ -20,19 +21,27 @@ public class SkeletonAttackState : MonoBehaviour
         NPCMoveState = StateMachine.NPCMoveState;
 
         m_myAnim = StateMachine.enemyAnim;
-
-        startAttack(m_playerMove);
+        Debug.Log("Paso");
+        StartCoroutine(startAttack());
+        b_firtsTime = true;
     }
 
-    private IEnumerator startAttack(PlayerMove playerDetected)
+    private void OnEnable()
+    {
+        if(b_firtsTime == true)
+        StartCoroutine(startAttack());
+    }
+
+    private IEnumerator startAttack()
     {
         m_myAnim.SetTrigger("Attack");
         m_myAnim.SetBool("Move", false);
-        if (playerDetected.GetComponentInParent<PlayerMove>().b_roll == false)
+        if (m_playerMove.b_roll == false)
         {
-            playerDetected.GetComponentInParent<PlayerMove>().TakeDamage(1);
+            m_playerMove.TakeDamage(1);
         }
 
+        //Flip sprite
         if (StateMachine.detectHitLeft == true)
         {
             StateMachine.enemySprite.flipX = true;
@@ -43,6 +52,7 @@ public class SkeletonAttackState : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2f);
+        StateMachine.b_startAttack = false;
         StateMachine.ChangeState(NPCMoveState);
     }
 }

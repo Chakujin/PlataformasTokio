@@ -7,14 +7,14 @@ public class SkeletonScript : EnemyClass
     public MonoBehaviour NPCInicialState;
     public MonoBehaviour NPCMoveState;
     public MonoBehaviour NPCAttackState;
-    public MonoBehaviour NPCTakeDamageState;
 
     private MonoBehaviour NPCActualState;
 
     //Var
+    public bool roll = false;
     [SerializeField] private Vector2 m_sizeAttack;
     public LayerMask playerLayer;
-    private bool b_startAttack = false;
+    public bool b_startAttack = false;
 
     public Transform detectedPoint;
     public Transform detectRigth;
@@ -31,7 +31,6 @@ public class SkeletonScript : EnemyClass
         //State Machine
         NPCMoveState.enabled = false;
         NPCAttackState.enabled = false;
-        NPCTakeDamageState.enabled = false;
         ChangeState(NPCInicialState);
     }
 
@@ -54,7 +53,7 @@ public class SkeletonScript : EnemyClass
                 foreach (Collider2D player in hitEnemyes)
                 {
                     //Attack Player
-                    if (b_startAttack == false)
+                    if (b_startAttack == false && takingDmg == false)
                     {
                         ChangeState(NPCAttackState);
                         b_startAttack = true;
@@ -73,7 +72,7 @@ public class SkeletonScript : EnemyClass
                 foreach (Collider2D player in hitEnemyes)
                 {
                     //Attack Player
-                    if (b_startAttack == false)
+                    if (b_startAttack == false && takingDmg == false)
                     {
                         ChangeState(NPCAttackState);
                         b_startAttack = true;

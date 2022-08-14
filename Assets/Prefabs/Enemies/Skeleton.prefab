@@ -142,7 +142,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3673359782813685029}
   - component: {fileID: 5302722338683863834}
-  - component: {fileID: 2784972020093798873}
   - component: {fileID: 6879268821972342578}
   - component: {fileID: 7577011135596600814}
   - component: {fileID: 1875229663502858794}
@@ -184,18 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a81d81ba0155b42bfd66e34d684401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2784972020093798873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2775593561059561767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4b4e73034f7af04da7caa753ad10700, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6879268821972342578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da2cd0eae0bdc64e8dfb60415bbfde7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointMove: []
+  pointMove:
+  - {fileID: 0}
+  - {fileID: 0}
   speed: 2
 --- !u!114 &7577011135596600814
 MonoBehaviour:
@@ -228,6 +217,7 @@ MonoBehaviour:
   maxHeal: 3
   speed: 0
   die: 0
+  takingDmg: 0
   move: 1
   detectHitRigth: 0
   detectHitLeft: 0
@@ -235,11 +225,12 @@ MonoBehaviour:
   NPCInicialState: {fileID: 6879268821972342578}
   NPCMoveState: {fileID: 6879268821972342578}
   NPCAttackState: {fileID: 5302722338683863834}
-  NPCTakeDamageState: {fileID: 2784972020093798873}
+  roll: 0
   m_sizeAttack: {x: 0, y: 0}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  b_startAttack: 0
   detectedPoint: {fileID: 3729300713499819097}
   detectRigth: {fileID: 5179098317821455692}
   detectLeft: {fileID: 2020865691542519251}

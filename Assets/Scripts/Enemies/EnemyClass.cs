@@ -10,6 +10,7 @@ public class EnemyClass : MonoBehaviour
 
     public float speed;
     public bool die = false;
+    public bool takingDmg = false;
     public bool move = true;
     public bool detectHitRigth = false;
     public bool detectHitLeft = false;
@@ -23,6 +24,7 @@ public class EnemyClass : MonoBehaviour
 
     private IEnumerator DamageCor(int dmg)
     {
+        takingDmg = true;
         float timeStop = 1f;
         move = false;
         heal -= dmg;
@@ -41,5 +43,6 @@ public class EnemyClass : MonoBehaviour
         }
         yield return new WaitForSeconds(timeStop);
         move = true;
+        takingDmg = false;
     }
 }
